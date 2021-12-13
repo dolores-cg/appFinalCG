@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import ItemListContainer from './components/ItemListContainer';
+import Navbar from './components/Navbar';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import CheckoutPage from './components/CheckoutPage';
+import Checkout from './components/Checkoutform/Checkout';
+import {Routes, BrowserRouter as Router, Route} from "react-router-dom"
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<ItemListContainer/>} exact/>
+        <Route path="/checkout-page" element={<CheckoutPage/>}/> 
+        <Route path="/checkout" element={<Checkout/>} exact/> 
+      </Routes>
     </div>
+    </Router>
   );
 }
 
